@@ -1,26 +1,37 @@
 from warehouse import Warehouse
 
-warehouse = Warehouse()
+def main():
+    warehouse = Warehouse()
 
-print("1. добавить продукт")
-print("2. взять продукт")
-print("3. показать все продукты")
-print('4. выход')
+    while True:
+        print("\nМеню:")
+        print("1. Добавить товар")
+        print("2. Списать товар")
+        print("3. Показать склад")
+        print("4. Выход")
 
-user_input = int(input("выберите дейсвие"))
+        choice = input("Выберите действие: ")
 
-if user_input == "1":
-    name = input("введите название товара - ")
-    count = int(input('введите количество товара - '))
-    warehouse.add_item(name, count)
-    print("товар добавлен!")
+        if choice == "1":
+            name = input("Введите название товара: ")
+            count = int(input("Введите количество: "))
+            warehouse.add_item(name, count)
+            print("Товар добавлен")
 
-elif user_input == "2":
-    name  = input("введите название  товара - ")
-    count = int(input("введите количество списания товара - "))
-    print("товар удален")
+        elif choice == "2":
+            name = input("Введите название товара: ")
+            count = int(input("Введите количество для списания: "))
+            warehouse.take(name, count)
 
-elif user_input == "3":
-    warehouse.show()
+        elif choice == "3":
+            warehouse.show()
+
+        elif choice == "4":
+            print("Выход из программы")
+            break
+
+        else:
+            print("Неверный пункт меню")
 
 
+main()
