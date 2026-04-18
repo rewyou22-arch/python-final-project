@@ -9,23 +9,23 @@ class Warehouse:
         if product:
             product.count += count
         else:
-            self.product.append(Product(name, count))
+            self.products.append(Product(name, count))
 
     def take(self, name,count):
-        products = self.find_product(name)
+        product = self.find_product(name)
 
-        if products is None:
+        if product is None:
             print("товар не найден")
             return
         
-        if products.count < count:
+        if product.count < count:
             print("недостачно товара на складе")
             return 
         
-        products.count -= count
+        product.count -= count
 
-        if products.count == 0:
-            self.products.remove(products)
+        if product.count == 0:
+            self.products.remove(product)
             print("товар списан")
 
     def show(self):
@@ -40,6 +40,6 @@ class Warehouse:
 
     def find_product(self,name):
         for product in self.products:
-            if product.name.lover() == name.lower():
+            if product.name.lower() == name.lower():
                 return product
         return None

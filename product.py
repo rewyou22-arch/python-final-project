@@ -4,4 +4,4 @@ class Product:
         self.count = count
 
     def show_info(self):
-        print(f"{self.naim} - имя продукта\n {self.count} - количество продукта")     
+        print(f"{self.name} - имя продукта\n {self.count} - количество продукта")     
